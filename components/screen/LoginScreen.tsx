@@ -95,6 +95,7 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.wrap}>
       <Text style={[styles.titleApp]}>Guest App</Text>
+      <Text style={[styles.descApp]}>Manage Your Invitation Easily</Text>
       <View style={styles.svgContainer}>
         <SvgUri width="100%" height="100%" uri={'https://ik.imagekit.io/vtvggda66/undraw_love_re_mwbq(1).svg'} />
       </View>
@@ -138,7 +139,7 @@ const LoginScreen = ({ navigation }) => {
           <TouchableOpacity style={styles.button}  onPress={handleSubmit(onSubmit)} >
             <Text style={
               [styles.buttonText,]
-            }>Sign In</Text>
+            }>Login</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -182,6 +183,12 @@ const styles = StyleSheet.create({
   },
   plusJkt800: {
     fontFamily: 'PlusJakartaSans_800ExtraBold',
+  },
+  descApp: {
+    fontSize: 11,
+    fontFamily: 'PlusJakartaSans_500Medium',
+    color: '#536DFE',
+    letterSpacing: -0.3,
   },
   titleApp: {
     fontSize: 24,
