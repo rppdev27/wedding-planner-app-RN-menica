@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, TextInput, Alert, Image, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, Button, TextInput, Alert, Image, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -146,12 +146,19 @@ const LoginScreen = ({ navigation }) => {
           name="password"
         />
         {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
-        <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+        {/* <Button title="Submit" onPress={handleSubmit(onSubmit)} 
+          style={{
+            width: '100%',
+            marginTop: 20,
+            backgroundColor: '#007bff',
+            borderRadius: 5,
+
+          }}
+        /> */}
+        <TouchableOpacity style={styles.button}  onPress={handleSubmit(onSubmit)} >
+          <Text style={styles.buttonText}>Sign In</Text>
+        </TouchableOpacity>
       </View>
-      <Button
-        title='Go to Home'
-        onPress={() => navigation.navigate('Home')}
-      />
     </View>
   );
 };
@@ -209,7 +216,30 @@ const styles = StyleSheet.create({
   welcomeText4: {
     fontSize: 20,
     fontFamily: 'PlusJakartaSans_700Bold'
-  }
+  },
+  button: {
+    width: '100%',                  // Full width
+    marginTop: 20,                 // Space above the button
+    backgroundColor: '#28a745',    // Green color
+    borderRadius: 30,              // Rounded corners
+    paddingVertical: 12,           // Vertical padding
+    alignItems: 'center',          // Center the text
+    justifyContent: 'center',       // Center the text
+    elevation: 5,                  // Android shadow
+    shadowColor: '#000',           // iOS shadow color
+    shadowOffset: {                // iOS shadow offset
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,           // iOS shadow opacity
+    shadowRadius: 3.5,             // iOS shadow radius
+  },
+  buttonText: {
+    color: '#fff',                 // Text color
+    fontSize: 16,                  // Text size
+    fontWeight: 'bold',            // Bold text
+    textAlign: 'center',           // Center the text
+  },
   
 });
 
