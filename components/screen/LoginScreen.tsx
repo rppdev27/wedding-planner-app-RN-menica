@@ -1,9 +1,33 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, TextInput, Alert, Image } from 'react-native';
+import { View, Text, StyleSheet, Button, TextInput, Alert, Image, ActivityIndicator } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { SvgUri } from 'react-native-svg';
+import {
+  useFonts,
+  Montserrat_100Thin,
+  Montserrat_200ExtraLight,
+  Montserrat_300Light,
+  Montserrat_400Regular,
+  Montserrat_500Medium,
+  Montserrat_600SemiBold,
+  Montserrat_700Bold,
+  Montserrat_800ExtraBold,
+  Montserrat_900Black,
+} from "@expo-google-fonts/montserrat";
+
+import {
+  Kanit_100Thin,
+  Kanit_200ExtraLight,
+  Kanit_300Light,
+  Kanit_400Regular,
+  Kanit_500Medium,
+  Kanit_600SemiBold,
+  Kanit_700Bold,
+  Kanit_800ExtraBold,
+  Kanit_900Black,
+} from "@expo-google-fonts/kanit";
 
 const userSchema = yup.object({
   email: yup.string().email('Invalid email').required('Email is required'),
@@ -16,6 +40,27 @@ const userSchema = yup.object({
 type UserFormData = yup.InferType<typeof userSchema>;
 
 const LoginScreen = ({ navigation }) => {
+  let [fontsLoaded] = useFonts({
+    Montserrat_100Thin,
+    Montserrat_200ExtraLight,
+    Montserrat_300Light,
+    Montserrat_400Regular,
+    Montserrat_500Medium,
+    Montserrat_600SemiBold,
+    Montserrat_700Bold,
+    Montserrat_800ExtraBold,
+    Montserrat_900Black,
+    Kanit_100Thin,
+    Kanit_200ExtraLight,
+    Kanit_300Light,
+    Kanit_400Regular,
+    Kanit_500Medium,
+    Kanit_600SemiBold,
+    Kanit_700Bold,
+    Kanit_800ExtraBold,
+    Kanit_900Black,
+  });
+
   const { control, handleSubmit, formState: { errors } } = useForm<UserFormData>({
     resolver: yupResolver(userSchema),
     defaultValues: {
@@ -34,20 +79,18 @@ const LoginScreen = ({ navigation }) => {
     );
   };
 
+  // Check if fonts are loaded
+  if (!fontsLoaded) {
+    return <ActivityIndicator size="large" color="#0000ff" />; // Loading indicator
+  }
+
   return (
     <View style={styles.wrap}>
       <View style={styles.svgContainer}>
         <SvgUri width="100%" height="100%" uri={'https://ik.imagekit.io/vtvggda66/undraw_love_re_mwbq(1).svg'} />
       </View>
-      {/* <View>
-        <Image
-          style={styles.logo}
-          source={{
-            uri: 'https://ik.imagekit.io/vtvggda66/logo-guest-menica.png?updatedAt=1728009677692'
-          }}
-        />
-      </View> */}
-      <Text style={styles.welcomeText}>Welcome</Text>
+      <Text style={styles.welcomeText}>Menica</Text>
+      <Text style={styles.welcomeText2}>Everyone</Text>
       <View style={styles.formContainer}>
         <Text>Email</Text>
         <Controller
@@ -127,7 +170,13 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    // marginBottom: 20,
+    fontFamily: 'Montserrat_800ExtraBold'
+  },
+  welcomeText2: {
+    fontSize: 24,
+    // fontWeight: 'bold',
+    fontFamily: 'Kanit_600SemiBold'
   }
 });
 
