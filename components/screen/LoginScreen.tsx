@@ -4,6 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { SvgUri } from 'react-native-svg';
+import { useFonts } from 'expo-font';
 
 import {
   PlusJakartaSans_200ExtraLight,
@@ -15,37 +16,6 @@ import {
   PlusJakartaSans_800ExtraBold,
 } from '@expo-google-fonts/plus-jakarta-sans'
 
-
-import {
-  useFonts,
-  Montserrat_100Thin,
-  Montserrat_200ExtraLight,
-  Montserrat_300Light,
-  Montserrat_400Regular,
-  Montserrat_500Medium,
-  Montserrat_600SemiBold,
-  Montserrat_700Bold,
-  Montserrat_800ExtraBold,
-  Montserrat_900Black,
-} from "@expo-google-fonts/montserrat";
-
-import {
-  Kanit_100Thin,
-  Kanit_200ExtraLight,
-  Kanit_300Light,
-  Kanit_400Regular,
-  Kanit_500Medium,
-  Kanit_600SemiBold,
-  Kanit_700Bold,
-  Kanit_800ExtraBold,
-  Kanit_900Black,
-} from "@expo-google-fonts/kanit";
-
-import {
-  Inter_100Thin,
-  Inter_500Medium,
-  Inter_700Bold
-} from "@expo-google-fonts/inter"
 
 const userSchema = yup.object({
   email: yup.string().email('Invalid email').required('Email is required'),
@@ -215,9 +185,11 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',                 // Text color
-    fontSize: 16,                  // Text size
-    fontWeight: 'bold',            // Bold text
-    textAlign: 'center',           // Center the text
+    fontSize: 14,                  // Text size
+    // fontWeight: 'bold',            // Bold text
+    textAlign: 'center',
+    fontFamily: 'PlusJakartaSans_500Medium',
+    letterSpacing: 0.7,            // Center the text
   },
   
 });
