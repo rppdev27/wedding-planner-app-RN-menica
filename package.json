@@ -12,6 +12,7 @@
     "@expo-google-fonts/inter": "^0.2.3",
     "@expo-google-fonts/kanit": "^0.2.3",
     "@expo-google-fonts/montserrat": "^0.2.3",
+    "@expo-google-fonts/plus-jakarta-sans": "^0.2.3",
     "@expo/vector-icons": "^14.0.2",
     "@hookform/resolvers": "^3.9.0",
     "@react-navigation/native": "^6.1.18",

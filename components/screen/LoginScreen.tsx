@@ -4,6 +4,18 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { SvgUri } from 'react-native-svg';
+
+import {
+  PlusJakartaSans_200ExtraLight,
+  PlusJakartaSans_300Light,
+  PlusJakartaSans_400Regular,
+  PlusJakartaSans_500Medium,
+  PlusJakartaSans_600SemiBold,
+  PlusJakartaSans_700Bold,
+  PlusJakartaSans_800ExtraBold,
+} from '@expo-google-fonts/plus-jakarta-sans'
+
+
 import {
   useFonts,
   Montserrat_100Thin,
@@ -28,6 +40,12 @@ import {
   Kanit_800ExtraBold,
   Kanit_900Black,
 } from "@expo-google-fonts/kanit";
+
+import {
+  Inter_100Thin,
+  Inter_500Medium,
+  Inter_700Bold
+} from "@expo-google-fonts/inter"
 
 const userSchema = yup.object({
   email: yup.string().email('Invalid email').required('Email is required'),
@@ -59,6 +77,9 @@ const LoginScreen = ({ navigation }) => {
     Kanit_700Bold,
     Kanit_800ExtraBold,
     Kanit_900Black,
+    Inter_500Medium,
+    Inter_700Bold,
+    PlusJakartaSans_700Bold
   });
 
   const { control, handleSubmit, formState: { errors } } = useForm<UserFormData>({
@@ -91,6 +112,8 @@ const LoginScreen = ({ navigation }) => {
       </View>
       <Text style={styles.welcomeText}>Menica</Text>
       <Text style={styles.welcomeText2}>Everyone</Text>
+      <Text style={styles.welcomeText3}>Digital</Text>
+      <Text style={styles.welcomeText4}>Guest Management</Text>
       <View style={styles.formContainer}>
         <Text>Email</Text>
         <Controller
@@ -177,7 +200,17 @@ const styles = StyleSheet.create({
     fontSize: 24,
     // fontWeight: 'bold',
     fontFamily: 'Kanit_600SemiBold'
+  },
+  welcomeText3: {
+    fontSize: 24,
+    // fontWeight: 'bold',
+    fontFamily: 'Inter_700Bold'
+  },
+  welcomeText4: {
+    fontSize: 20,
+    fontFamily: 'PlusJakartaSans_700Bold'
   }
+  
 });
 
 export default LoginScreen;
