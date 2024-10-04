@@ -58,28 +58,15 @@ const userSchema = yup.object({
 type UserFormData = yup.InferType<typeof userSchema>;
 
 const LoginScreen = ({ navigation }) => {
+
   let [fontsLoaded] = useFonts({
-    Montserrat_100Thin,
-    Montserrat_200ExtraLight,
-    Montserrat_300Light,
-    Montserrat_400Regular,
-    Montserrat_500Medium,
-    Montserrat_600SemiBold,
-    Montserrat_700Bold,
-    Montserrat_800ExtraBold,
-    Montserrat_900Black,
-    Kanit_100Thin,
-    Kanit_200ExtraLight,
-    Kanit_300Light,
-    Kanit_400Regular,
-    Kanit_500Medium,
-    Kanit_600SemiBold,
-    Kanit_700Bold,
-    Kanit_800ExtraBold,
-    Kanit_900Black,
-    Inter_500Medium,
-    Inter_700Bold,
-    PlusJakartaSans_700Bold
+    PlusJakartaSans_200ExtraLight,
+    PlusJakartaSans_300Light,
+    PlusJakartaSans_400Regular,
+    PlusJakartaSans_500Medium,
+    PlusJakartaSans_600SemiBold,
+    PlusJakartaSans_700Bold,
+    PlusJakartaSans_800ExtraBold,
   });
 
   const { control, handleSubmit, formState: { errors } } = useForm<UserFormData>({
@@ -107,14 +94,13 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.wrap}>
+      <Text style={[styles.titleApp]}>Guest App</Text>
       <View style={styles.svgContainer}>
         <SvgUri width="100%" height="100%" uri={'https://ik.imagekit.io/vtvggda66/undraw_love_re_mwbq(1).svg'} />
       </View>
-      <Text style={styles.welcomeText}>Menica</Text>
-      <Text style={styles.welcomeText2}>Everyone</Text>
-      <Text style={styles.welcomeText3}>Digital</Text>
-      <Text style={styles.welcomeText4}>Guest Management</Text>
-      <View style={styles.formContainer}>
+      <View style={{
+        width: '80%',
+      }}> 
         <Text>Email</Text>
         <Controller
           control={control}
@@ -146,18 +132,15 @@ const LoginScreen = ({ navigation }) => {
           name="password"
         />
         {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
-        {/* <Button title="Submit" onPress={handleSubmit(onSubmit)} 
-          style={{
-            width: '100%',
-            marginTop: 20,
-            backgroundColor: '#007bff',
-            borderRadius: 5,
-
-          }}
-        /> */}
-        <TouchableOpacity style={styles.button}  onPress={handleSubmit(onSubmit)} >
-          <Text style={styles.buttonText}>Sign In</Text>
-        </TouchableOpacity>
+        <View style={{
+          width: '100%',
+        }}>
+          <TouchableOpacity style={styles.button}  onPress={handleSubmit(onSubmit)} >
+            <Text style={
+              [styles.buttonText,]
+            }>Sign In</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -197,31 +180,20 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     marginBottom: 20,
   },
-  welcomeText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    // marginBottom: 20,
-    fontFamily: 'Montserrat_800ExtraBold'
+  plusJkt800: {
+    fontFamily: 'PlusJakartaSans_800ExtraBold',
   },
-  welcomeText2: {
+  titleApp: {
     fontSize: 24,
-    // fontWeight: 'bold',
-    fontFamily: 'Kanit_600SemiBold'
-  },
-  welcomeText3: {
-    fontSize: 24,
-    // fontWeight: 'bold',
-    fontFamily: 'Inter_700Bold'
-  },
-  welcomeText4: {
-    fontSize: 20,
-    fontFamily: 'PlusJakartaSans_700Bold'
+    fontFamily: 'PlusJakartaSans_800ExtraBold',
+    color: '#536DFE',
+    letterSpacing: -1,
   },
   button: {
     width: '100%',                  // Full width
     marginTop: 20,                 // Space above the button
-    backgroundColor: '#28a745',    // Green color
-    borderRadius: 30,              // Rounded corners
+    backgroundColor: '#536DFE',    // Green color
+    borderRadius: 10,              // Rounded corners
     paddingVertical: 12,           // Vertical padding
     alignItems: 'center',          // Center the text
     justifyContent: 'center',       // Center the text
@@ -243,4 +215,6 @@ const styles = StyleSheet.create({
   
 });
 
+
 export default LoginScreen;
+
