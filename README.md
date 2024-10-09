@@ -1,6 +1,6 @@
 # Project Title
 
-Guest Management App - by Menica
+Wedding Planner/Checklist App - by Menica
 
 ## Intro
 
@@ -27,4 +27,4 @@ This project utilizes the following libraries:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/rppdev27/guest-management-app-expo-RN-wedding-menica
+   git clone https://github.com/rppdev27/wedding-planner-app-RN-wedding-menica
